@@ -1,4 +1,4 @@
-// src/components/Home/Home.jsx
+
 import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
