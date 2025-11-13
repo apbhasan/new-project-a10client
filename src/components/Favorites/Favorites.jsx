@@ -36,7 +36,7 @@ const Favorites = () => {
     if (user?.email) {
       fetchFavorites();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [user?.email]);
 
   const handleRemove = (id) => {
