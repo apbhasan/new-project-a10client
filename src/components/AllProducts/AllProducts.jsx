@@ -1,4 +1,4 @@
-// src/components/AllProducts/AllProducts.jsx
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     fetchArtworks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, []);
 
   const handleSearch = (e) => {
@@ -46,9 +46,9 @@ const AllProducts = () => {
   };
 
   useEffect(() => {
-    // refetch when category changes (but not on every keystroke)
+    
     fetchArtworks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [category]);
 
   if (loading) {
