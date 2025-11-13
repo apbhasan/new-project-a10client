@@ -1,4 +1,4 @@
-// App.jsx
+// src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./components/Home/Home";
@@ -19,7 +19,9 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "explore", element: <AllProducts /> }, // Explore Artworks
+
+      { path: "explore", element: <AllProducts /> },
+
       {
         path: "add-artwork",
         element: (
@@ -53,14 +55,8 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "explore",
-        element: <AllProducts />,
-       },
-
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      
     ],
   },
 ]);
