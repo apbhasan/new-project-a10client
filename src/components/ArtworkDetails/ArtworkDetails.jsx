@@ -51,7 +51,7 @@ const ArtworkDetails = () => {
       .patch(`${API_BASE}/artworks/${id}/like`)
       .then(() => {
         toast.success("You liked this artwork");
-        fetchArtwork(); // refresh likes count
+        fetchArtwork(); 
       })
       .catch((err) => toast.error(err.message));
   };
