@@ -32,7 +32,7 @@ const ArtworkDetails = () => {
 
   useEffect(() => {
     fetchArtwork();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [id]);
 
   // fetch total artworks by this artist (for requirement)
