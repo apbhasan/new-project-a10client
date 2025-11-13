@@ -1,4 +1,4 @@
-// src/components/ArtworkDetails/ArtworkDetails.jsx
+// src/components/ArtworkDetails/
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
