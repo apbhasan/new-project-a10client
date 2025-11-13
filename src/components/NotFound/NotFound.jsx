@@ -1,4 +1,4 @@
-// components/NotFound/NotFound.jsx
+
 import errorImg from "../../assets/error-404.png";
 import { Link } from "react-router-dom";
 
