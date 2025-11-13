@@ -1,7 +1,8 @@
-
+// src/components/AllProducts/AllProducts.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_BASE } from "../../api"; // 👈 NEW: central API base
 
 const AllProducts = () => {
   const [artworks, setArtworks] = useState([]);
@@ -14,7 +15,7 @@ const AllProducts = () => {
     setLoading(true);
 
     axios
-      .get("http://localhost:3000/artworks", {
+      .get(`${API_BASE}/artworks`, {
         params: {
           visibility: "Public",
           search: search || undefined,
@@ -22,7 +23,7 @@ const AllProducts = () => {
         },
       })
       .then((res) => {
-        setArtworks(res.data);
+        setArtworks(res.data || []);
         setLoading(false);
       })
       .catch((err) => {
@@ -31,10 +32,17 @@ const AllProducts = () => {
       });
   };
 
+  // initial load
   useEffect(() => {
     fetchArtworks();
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // refetch when category changes
+  useEffect(() => {
+    fetchArtworks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -44,12 +52,6 @@ const AllProducts = () => {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
-
-  useEffect(() => {
-    
-    fetchArtworks();
-    
-  }, [category]);
 
   if (loading) {
     return (
