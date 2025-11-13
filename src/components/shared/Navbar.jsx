@@ -1,11 +1,11 @@
-// src/components/shared/Navbar.jsx
+
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
-// local user icon (src/assets/user-icon.webp)
+
 import userIcon from "../../assets/user-icon.webp";
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
       .catch((err) => toast.error(err.message));
   };
 
-  // fallback user image: if photoURL is missing/invalid, use local user icon
+  
   const userPhoto =
     user?.photoURL &&
     user.photoURL !== "null" &&

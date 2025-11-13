@@ -1,6 +1,6 @@
-// src/contexts/AuthProvider.jsx
+
 import { useEffect, useState } from "react";
-import AuthContext from "./AuthContext"; // default import
+import AuthContext from "./AuthContext"; 
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,14 +12,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 
-// Google provider
+
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ---------- THEME (light / dark) ----------
+  
   const [theme, setTheme] = useState(
     localStorage.getItem("artify-theme") || "light"
   );
@@ -32,9 +32,9 @@ const AuthProvider = ({ children }) => {
   const toggleTheme = () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
-  // ---------- AUTH FUNCTIONS ----------
+  
 
-  // signup (optionally with name + photoURL)
+  
   const createUser = (email, password, name, photoURL) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password).then(
@@ -50,25 +50,25 @@ const AuthProvider = ({ children }) => {
     );
   };
 
-  // login with email/password
+  
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Google login / signup
+  
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  // logout
+  
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  // observe auth state
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser || null);
