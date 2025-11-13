@@ -35,7 +35,7 @@ const ArtworkDetails = () => {
     
   }, [id]);
 
-  // fetch total artworks by this artist (for requirement)
+  
   useEffect(() => {
     if (!art?.userEmail) return;
     axios
